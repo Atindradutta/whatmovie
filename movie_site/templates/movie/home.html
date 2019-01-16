@@ -133,14 +133,13 @@
     </header>
     <!-- header-start -->
     <!-- slider-area-start -->
+    {% for slide in all_slide %}
      <div id="slider">
                       <figure>
-                        <img src='{%static "images/slider-1.jpg" %}'>
-                        <img src='{%static "images/slider-2.jpg" %}'>
-                        <img src='{%static "images/slide4.jpg" %}'>
-                        <img src='{%static "images/slide5.jpg" %}'>
+                        <img src="/media/{{ Movie.picture }}">
                       </figure>
                     </div>
+                    {% endfor %}
     <!-- slider-area-end -->
     <!-- top-movie-area-start -->
      <div class="movie-tab-area">

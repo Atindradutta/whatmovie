@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.http import HttpResponse
 
-from movie_site.models import Movie
+from movie_site.models import Movie,slide
 from django.template.context_processors import csrf
 from django.db.models import Q 
 
@@ -57,8 +57,9 @@ def register(request):
 
 
 def home(request):
-   movies = Movie.objects.all()	
-   return render(request,'movie/home.html',{'movies':movies})
+   movies = Movie.objects.all()
+   all_slide=slide.objects.all()	
+   return render(request,'movie/home.html',{'movies':movies},{'all_slide':all_slide})
 
                 
 def hollywood(request):
