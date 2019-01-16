@@ -70,19 +70,16 @@ def bollywood(request):
 def tollywood(request):
    return render(request,'movie/tollywood.html')
 
-def search(request):
-	if request.method=='POST':
-		srch = requesty.POST['srh']
+#def home(request):
+	#if request.method=='POST':
+		#srch = request.POST['srh']
 
-		if srch:
-			match = student.objects.filter(Q(Name_icontains=srch)|
-			                               Q(title_icontains=srch)
-
-										   )
-			if match:
-				return render(request,'movie/home.html',{'sr':match})
-			else:
-				messages.error(request,'no result found')
-		else:
-			return HttpResponseRedirect('movie/home/')
-	return render(request,'movie/home.html')											   
+		#if srch:
+			#match = Movie.objects.filter(Q(name__icontains=srch))
+			#if match:
+				#return render(request,'movie/home.html',{'Movies':match})
+			#else:
+				#messages.error(request,'no result found')
+		#else:
+			#return HttpResponseRedirect('movie/home/')
+	#return render(request,'movie/home.html')											   
