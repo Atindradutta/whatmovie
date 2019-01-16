@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--- Basic Page Needs  -->
+    <meta charset="utf-8">
+    <title>Home One || Movie</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load staticfiles %}
+    <!-- Mobile Specific Meta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href='{%static "css/boostrapmin.css" %}'>
+    <link rel="stylesheet" href='{%static "css/jquery-ui.css" %}'>
+    <link rel="stylesheet" href='{%static "css/fontawesome-all.min.css" %}'>
+    <link rel="stylesheet" href='{%static "css/owl.carousel.min.css" %}'>
+    <link rel="stylesheet" href='{%static "css/animate.css" %}'>
+    <link rel="stylesheet" href='{%static "css/plyr.css" %}'>
+    <link rel="stylesheet" href='{%static "css/magnific-popup.css" %}'>
+    <link rel="stylesheet" href='{%static "css/slicknav.min.css" %}'>
+    <link rel="stylesheet" href='{%static "css/style1.css" %}'>
+    <link rel="stylesheet" href='{%static "css/responsive.css" %}'>
+    <link rel="stylesheet" href='{%static "css/slidepic.css" %}'>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div id="preloader"></div>
+    <!-- header-start -->
+    
+    <header>
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-12">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src='{%static "images/filmy.png" %}' alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-sm-12 col-12">
+                        <div class="responsive-menu d-lg-none"></div>
+                        <div class="menu d-none d-lg-block">
+                            <nav>
+                                <ul id="menu">
+                                    <li>
+                                        <a href="movie.html">Home</a>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="05_feature-movie-grid.html">Movie Layout</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="05_feature-movie-grid.html">Movie Grid</a>
+                                            </li>
+                                            <li>
+                                                <a href="06_feature-movie-list.html">Movie list</a>
+                                            </li>
+                                            <li>
+                                                <a href="04_movie-details.html">Movie Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a>Type</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'movie_site:bollywood' %}">Bollywood</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'movie_site:tollywood' %}">Tollywood</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a href="{% url 'movie_site:hollywood' %}">Hollywood</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="mega">
+                                        <a href="#">Pages</a>
+                                        <ul class="mega-menu">
+                                            <li>
+                                                <a href="#">Column 1</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="index.html">Home One</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="02_index-2.html">Home Two</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="03_index-3.html">Home Three</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Column 2</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="04_movie-details.html">Movie Details</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="05_feature-movie-grid.html">Movie Feature Grid</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="06_feature-movie-list.html">Movie Feature List</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Column 3</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="07_celebrety-page.html">Celebrety Page</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="08_celebrety-details.html">Celebrety Details</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="09_about.html">About</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Column 4</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="10_blog-page.html">Blog Page</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="11_blog-details.html">Blog Details</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="12_contact.html">Contact</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contacts</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+                        <div class="account">
+                            <a href="#">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="free-ticket">
+                            <a href="#">.BLOCKBLASTER MOVIE SHOW.</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12 col-12">
+                        <div class="search-signup">
+                            <div class="search">
+                                <form action="#">
+                                    <div class="search-input-box">
+                                        <select>
+                                            <option>Select Movie Type</option>
+                                            <option>Comedy Movie</option>
+                                            <option>Drama Movie</option>
+                                            <option>Horror Movie</option>
+                                            <option>Action Movie </option>
+                                            <option>xtra</option>
+                                            <option>xtra</option>
+                                            <option>xtra</option>
+                                            <option>xtra</option>
+                                        </select>    
+                                        <input type="text">
+                                            <button>
+                                                <span style="font-size:17px" class="material-icons">mic</span>
+                                            </button>
+                                            <button>
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>                                          
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-start -->
+    <!-- slider-area-start -->
+     <div id="slider">
+                      <figure>
+                        <img src='{%static "images/slider-1.jpg" %}'>
+                        <img src='{%static "images/slider-2.jpg" %}'>
+                        <img src='{%static "images/slide4.jpg" %}'>
+                        <img src='{%static "images/slide5.jpg" %}'>
+                      </figure>
+                    </div>
+S
+    <!-- slider-area-end -->
+    <!-- top-movie-area-start -->
+     <div class="movie-tab-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="movie-tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                             
+                            <li class="nav-item">
+                                <a class="nav-link active" id="lmovie-tab" data-toggle="tab" href="#lmovie" role="tab" aria-controls="lmovie" aria-selected="true">LATEST MOVIES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tshow-tab" data-toggle="tab" href="#tshow" role="tab" aria-controls="tshow" aria-selected="false">THIS MONTH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="omovie-tab" data-toggle="tab" href="#omovie" role="tab" aria-controls="omovie" aria-selected="false">WATCH NOW</a>
+                            </li>
+                        </ul>
+                        
+                    </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>              
+    <div class="row">
+                <div class="col-12">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel">
+                            <div class="grid-movies">
+                                <div class="row">
+                                    <div class="single-top-movie" style="margin-left:65px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src= '{%static "images/top-movie-4.jpg"%}' alt="">
+                                                </a>
+                                            </div>
+                                               <a class="material-icons"  data-toggle="modal" data-target="#videoModal"data-theVideo="https://www.youtube.com/embed/tgbNymZ7vqY"> play_circle_outline</a>
+                                                     
+                                                       
+                                                           
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">Bokeh Movie (2017)</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">01 :54 :43</p>
+                                            </div>
+                                    </div>
+                                        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                            <div>
+                                                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                      
+                                        <div class="single-top-movie" style="margin-left:20px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src='{%static "images/top-movie-4.jpg" %}'alt="">
+                                                </a>
+                                            </div>
+                                            <span class="view-counter">426k Views</span>
+                                            <a class="material-icons" href="https://www.youtube.com/watch?v=xcJtL7QggTI&t=6s"> play_circle_outline</a>
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">Bokeh Movie (2017)</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">01 :54 :43</p>
+                                            </div>
+                                        </div>
+                                        <div class="single-top-movie"  style="margin-left:20px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src='{%static "images/top-movie-4.jpg" %}'alt="">
+                                                </a>
+                                            </div>
+                                              <span class="view-counter">263k Views</span>
+                                                 <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">Gitter Horror Movie</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">02 :30 :01</p>
+                                            </div>
+                                        </div>
+                                        <div class="single-top-movie" style="margin-left:20px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src='{%static "images/top-movie-2.jpg"%}' alt="">
+                                                </a>
+                                            </div>
+                                                 <span class="view-counter">759k Views</span>
+                                                     <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">The Music Video</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">04 :00 :00</p>
+                                            </div>
+                                        </div>
+           
+                                        <div class="single-top-movie" style="margin-left:20px;">
+                                                        <div class="img">
+                                                            <a href="04_movie-details.html">
+                                                                <img src='{%static "images/top-movie-2.jpg"%}' alt="">
+                                                            </a>
+                                                        </div>
+                                                        <span class="view-counter">759k Views</span>
+                                                           <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                                        <div class="content">
+                                                            <h2 class="name">
+                                                                <a href="04_movie-details.html">The Music Video</a>
+                                                            </h2>
+                                                            <p class="time">Release Date</p>
+                                                            <p class="date">October 26, 2018</p>
+                                                            <p class="duration">02 :43 :41</p>
+                                                        </div>
+                                        </div>
+                                        <div class="single-top-movie" style="margin-left:20px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src='{%static "images/top-movie-2.jpg" %}' alt="">
+                                                </a>
+                                            </div>
+                                            <span class="view-counter">759k Views</span>
+                                               <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">The Music Video</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">02 :43 :41</p>
+                                            </div>
+                            </div>
+                
+                            
+                                </div>
+            </div>
+        </div>
+    </div>
+    <!-- top-movie-area-end -->
+    <!-- upcoming-movie-area-start -->
+    <div class="upcoming-movie-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>UPCOMING MOVIES</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                    <div class="upcoming-movie-feature">
+                        <div class="umf-single single-top-movie">
+                            <div class="img">
+                                <a href="04_movie-details.html">
+                                    <img src='{%static "images/upcoming-b-1.jpg"%}' alt="">
+                                </a>
+                            </div>
+                            <span class="view-counter">759k Views</span>
+                            <div class="content">
+                                <h2 class="name">
+                                    <a href="04_movie-details.html">Jecu Jek English Horror Movie Are Available</a>
+                                </h2>
+                                <p class="time" style="color: #69a728;">49 Day To Go </p>
+                                <p id="duration" style="color: #69a728;"></p>
+                                    
+                            </div>
+                        </div>
+                    </div>
+            </div>         
+                
+                    <div class="ums-all">
+                            <div class="row">
+                        
+                                        <div class="ums-single single-top-movie"style="margin-left: 20px;">
+                                                <div class="img">
+                                                    <a href="04_movie-details.html">
+                                                        <img src='{%static "images/upcoming-s-3.jpg"%}' alt="">
+                                                    </a>
+                                                </div>
+                                                <span class="view-counter">125k Views</span>
+                                                <div class="content">
+                                                    <h2 class="name">
+                                                        <a href="04_movie-details.html">Sport Life</a>
+                                                    </h2>
+                                                    <p class="time">Provide our site</p>
+                                                    <p class="date">October 26, 2018</p>
+                                                </div>
+                                            </div>
+                          
+                                            <div class="ums-single single-top-movie" style="margin-left: 20px;">
+                                                <div class="img">
+                                                    <a href="04_movie-details.html">
+                                                        <img src='{%static "images/upcoming-s-3.jpg"%}' alt="">
+                                                    </a>
+                                                </div>
+                                                <span class="view-counter">125k Views</span>
+                                                <div class="content">
+                                                    <h2 class="name">
+                                                        <a href="04_movie-details.html">Love War 5</a>
+                                                    </h2>
+                                                    <p class="time">Provide our site</p>
+                                                    <p class="date">October 26, 2018</p>
+                                                </div>
+                                            </div>
+                            </div>               
+                            <div class="row" style="margin-top: -25px;">
+                                    <div class="ums-single single-top-movie" style="margin-left: 20px;">
+                                        <div class="img">
+                                            <a href="04_movie-details.html">
+                                                <img src='{%static "images/upcoming-s-4.jpg"%}' alt="">
+                                            </a>
+                                        </div>
+                                        <span class="view-counter">125k Views</span>
+                                        <div class="content">
+                                            <h2 class="name">
+                                                <a href="04_movie-details.html">Fire Sermon</a>
+                                            </h2>
+                                            <p class="time">Provide our site</p>
+                                            <p class="date">October 26, 2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="ums-single single-top-movie" style="margin-left: 20px;">
+                                        <div class="img">
+                                            <a href="04_movie-details.html">
+                                                <img src='{%static "images/upcoming-s-1.jpg"%}' alt="">
+                                            </a>
+                                        </div>
+                                        <span class="view-counter">125k Views</span>
+                                        <div class="content">
+                                            <h2 class="name">
+                                                <a href="04_movie-details.html">Fish Warehouse</a>
+                                            </h2>
+                                            <p class="time">Provide our site</p>
+                                            <p class="date">October 26, 2018</p>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+    <!-- upcoming-movie-area-end -->
+    <!-- movie-tab-area-start -->
+    <div class="movie-tab-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="movie-tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                             
+                            <li class="nav-item">
+                                <a class="nav-link active" id="lmovie-tab" data-toggle="tab" href="#lmovie" role="tab" aria-controls="lmovie" aria-selected="true">TOP RATING</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tshow-tab" data-toggle="tab" href="#tshow" role="tab" aria-controls="tshow" aria-selected="false">MOVIES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="omovie-tab" data-toggle="tab" href="#omovie" role="tab" aria-controls="omovie" aria-selected="false">WATCH NOW</a>
+                            </li>
+                        </ul>
+                        
+                    </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>                  
+    <div class="row">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel">
+                            <div class="grid-movies">
+                                <div class="row">
+                                   
+                                        <div class="single-top-movie" style="margin-left: 60px;">
+                                            <div class="img">
+                                                <a href="04_movie-details.html">
+                                                    <img src='{%static "images/latest-3.jpg"%}' alt="">
+                                                </a>
+                                            </div>
+                                            <span class="view-counter">426k Views</span>
+                                              <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a> 
+                                            <div class="content">
+                                                <h2 class="name">
+                                                    <a href="04_movie-details.html">Bokeh Movie (2017)</a>
+                                                </h2>
+                                                <p class="time">Release Date</p>
+                                                <p class="date">October 26, 2018</p>
+                                                <p class="duration">02 :40 :12</p>
+                                            </div>
+                                        </div>
+                            <div class="single-top-movie" style="margin-left:20px;">
+                                <div class="img">
+                                    <a href="04_movie-details.html">
+                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
+                                    </a>
+                                </div>
+                                <span class="view-counter">426k Views</span>
+                                   <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                <div class="content">
+                                    <h2 class="name">
+                                        <a href="04_movie-details.html">Bokeh Movie (2017)</a>
+                                    </h2>
+                                    <p class="time">Release Date</p>
+                                    <p class="date">October 26, 2018</p>
+                                    <p class="duration">01 :54 :43</p>
+                                </div>
+                            </div>
+                            <div class="single-top-movie"  style="margin-left:20px;">
+                                <div class="img">
+                                    <a href="04_movie-details.html">
+                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
+                                    </a>
+                                </div>
+                                <span class="view-counter">263k Views</span>
+                                  <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a> 
+                                <div class="content">
+                                    <h2 class="name">
+                                        <a href="04_movie-details.html">Gitter Horror Movie</a>
+                                    </h2>
+                                    <p class="time">Release Date</p>
+                                    <p class="date">October 26, 2018</p>
+                                    <p class="duration">02 :30 :01</p>
+                                </div>
+                            </div>
+                            <div class="single-top-movie"  style="margin-left:20px;">
+                                <div class="img">
+                                    <a href="04_movie-details.html">
+                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
+                                    </a>
+                                </div>
+                                <span class="view-counter">263k Views</span>
+                                 <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
+                                <div class="content">
+                                    <h2 class="name">
+                                        <a href="04_movie-details.html">Gitter Horror Movie</a>
+                                    </h2>
+                                    <p class="time">Release Date</p>
+                                    <p class="date">October 26, 2018</p>
+                                    <p class="duration">02 :30 :01</p>
+                                </div>
+                            </div>
+                     </div>   
+                            
+            </div>
+        </div>
+    </div>
+    <!-- movie-tab-area-end -->
+    <!-- coming-area-start -->
+    <div class="coming-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="coming">
+                        <img src='{%static "images/find-bg.jpg"%}' alt="">
+                        <h2 class="intro">Animation Comming soon Movie</h2>
+                        <h3 class="title">Find Your Flock</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- coming-area-end -->
+    <!-- about-movie-area-start -->
+    <div class="about-movie-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>About This Movie</h2>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- about-movie-area-end -->
+    <!-- newsletter-area-start -->
+    <div class="newsletter-area bg-with-ebony">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-12">
+                    <div class="newsletter">
+                        <h2 class="title">Newsletter</h2>
+                        <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                            in some form cted humour or randomised words.</p>
+                        <form action="#">
+                            <div class="newsleter-input-box">
+                                <input type="text" placeholder="Enter your email.......">
+                                <button>
+                                    <span class="glyphicon glyphicon-send">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newsletter-area-end -->
+    <!-- news-area-start -->
+    <div class="news-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>Letest News</h2>  
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+                    <div class="feature-news">
+                        <div class="single-news">
+                            <div class="img">
+                                <img src='{%static "images/latest-news-b-1.jpg"%}' alt="">
+                            </div>
+                            <div class="content">
+                                <span class="date">October-17-2017</span>
+                                <h2 class="title">
+                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem Ipsum is there fore always free from.</a>
+                                </h2>
+                                <p class="text">Pellentesque imperdiet sagittis est, vitae consectetur enim feugiat quis. Nunc purus eros,
+                                    feugiat at enim sit amet, dictum maximus nisl. In vitae lorem vitae mauris vestibulum
+                                    venenatis eget a urna. Etiam vehicula lorem.</p>
+                                <div class="meta-more">
+                                    <a class="more" href="11_blog-details.html">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                    <div class="news-carousel owl-carousel owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                <div class="owl-item cloned">
+                                    <div class="all-small-news">
+                                        <div class="single-news">
+                                            <div class="img">
+                                                <img src='{%static "images/latest-news-s-1.jpg"%}' alt="">
+                                            </div>
+                                            <div class="content">
+                                                <h2 class="title">
+                                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem fore always free from.</a>
+                                                </h2>
+                                                <div class="meta-more">
+                                                    <a class="more" href="11_blog-details.html">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-news">
+                                            <div class="img">
+                                                <img src='{%static "images/latest-news-s-2.jpg"%}'alt="">
+                                            </div>
+                                            <div class="content">
+                                                <h2 class="title">
+                                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem fore always free from.</a>
+                                                </h2>
+                                                <div class="meta-more">
+                                                    <a class="more" href="11_blog-details.html">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <button onclick="topFunction()" id="myBtn" title="Go to top">top</button>
+    <!-- news-area-end -->
+    <!-- footer-start -->
+    <!-- footer-end -->
+    <!-- Scripts -->
+    <script src='{%static "javascript/jquery-3.2.0.min.js" %}'></script>
+    <script src='{%static "javascript/jquery-ui.js" %}'></script>
+    <script src='{%static "javascript/owl.curousel.min.js" %}'></script>
+    <script src='{%static "javascript/jqueary.countup.min.js" %}'></script>
+    <script src='{%static "javascript/countdown.js" %}'></script>
+    <script src='{%static "javascript/parallax.js" %}'></script>
+    <script src='{%static "javascript/amplitude.js" %}'></script>
+    <script src='{%static "javascript/plyr.js" %}'></script>
+    <script src='{%static "javascript/jquery.slimscroll.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.magnific-popup.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.slicknav.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.scrollUp.js" %}'></script>
+    <script src='{%static "javascript/jquery.mixitup.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.waypoints.min.js" %}'></script>
+    <script src='{%static "javascript/popper.min.js" %}'></script>
+    <script src='{%static "javascript/booststrap.min.js" %}'></script>
+    <script src='{%static "javascript/theme.js" %}'></script>
+    
+    <!--auto play script -->
+    <script>
+  autoPlayYouTubeModal();
+  function autoPlayYouTubeModal() {
+      var trigger = $("body").find('[data-toggle="modal"]');
+      trigger.click(function () {
+          var theModal = $(this).data("target"),
+              videoSRC = $(this).attr("data-theVideo"),
+              videoSRCauto = videoSRC + "?autoplay=1";
+          $(theModal + ' iframe').attr('src', videoSRCauto);
+          $(theModal + ' button.close').click(function () {
+              $(theModal + ' iframe').attr('src', videoSRC);
+          });
+      });
+  }
+</script>
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+
+                            
+</body>
+
+</html>
