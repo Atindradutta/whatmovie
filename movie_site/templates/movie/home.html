@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'movie/base.html' %}
+{% load staticfiles %}
 
-<head>
-    <!--- Basic Page Needs  -->
-    <meta charset="utf-8">
-    <title>Home One || Movie</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% load staticfiles %}
-    <!-- Mobile Specific Meta  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href='{%static "css/boostrapmin.css" %}'>
-    <link rel="stylesheet" href='{%static "css/jquery-ui.css" %}'>
-    <link rel="stylesheet" href='{%static "css/fontawesome-all.min.css" %}'>
-    <link rel="stylesheet" href='{%static "css/owl.carousel.min.css" %}'>
-    <link rel="stylesheet" href='{%static "css/animate.css" %}'>
-    <link rel="stylesheet" href='{%static "css/plyr.css" %}'>
-    <link rel="stylesheet" href='{%static "css/magnific-popup.css" %}'>
-    <link rel="stylesheet" href='{%static "css/slicknav.min.css" %}'>
-    <link rel="stylesheet" href='{%static "css/style1.css" %}'>
-    <link rel="stylesheet" href='{%static "css/responsive.css" %}'>
-    <link rel="stylesheet" href='{%static "css/slidepic.css" %}'>
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="img/favicon.ico">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-</head>
-
-<body>
+{% block content %}
     <div id="preloader"></div>
     <!-- header-start -->
     
@@ -50,7 +12,7 @@
                     <div class="col-lg-2 col-md-3 col-sm-12 col-12">
                         <div class="logo">
                             <a href="index.html">
-                                <img src='{%static "images/filmy.png" %}' alt="">
+                                <img src='{% static "images/filmy.png" %}' alt="">
                             </a>
                         </div>
                     </div>
@@ -60,7 +22,7 @@
                             <nav>
                                 <ul id="menu">
                                     <li>
-                                        <a href="movie.html">HOME</a>
+                                        <a href="{% url 'movie_site:home' %}">HOME</a>
                                     </li>
                                     <li>
                                         <a>SELETE MOVIE TYPE</a>
@@ -81,7 +43,10 @@
                                         <a href="contact.html">CONTACT US</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'movie_site:register' %}">SIGN IN</a>
+                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'movie_site:login' %}">SIGN IN</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -113,12 +78,7 @@
                                             <select>
                                                 <option>Select Movie Type</option>
                                             </select>
-                                            
-                                        <input type="text"  placeholder="enter movie name">
-                                                
-                                            <button>
-                                                <span style="font-size:17px" class="material-icons">mic</span>
-                                            </button>
+                                        <input type="text"  placeholder=" Enter Movie Name">
                                             <button>
                                                 <span class="glyphicon glyphicon-search"></span>
                                             </button>                                          
@@ -133,13 +93,15 @@
     </header>
     <!-- header-start -->
     <!-- slider-area-start -->
-    {% for slide in all_slide %}
+    
      <div id="slider">
+            {% for slide in all_slide %}
                       <figure>
-                        <img src="/media/{{ Movie.picture }}">
+                        <img src="/media/{{ slide.images }}">
                       </figure>
+                      {% endfor %}
                     </div>
-                    {% endfor %}
+                   
     <!-- slider-area-end -->
     <!-- top-movie-area-start -->
      <div class="movie-tab-area">
@@ -179,7 +141,7 @@
                                             <img src= "/media/{{ Movie.picture }}"alt="">
                                         </a>
                                     </div>
-                                       <a class="material-icons"  data-toggle="modal" data-target="#videoModal"data-theVideo="https://www.youtube.com/watch?v=0j42khbOS_U&start_radio=1&list=RD0j42khbOS_U"> play_circle_outline</a>
+                                       <a class="material-icons" href="{% url 'movie_site:player' %}"> play_circle_outline</a>
                                     <div class="content">
                                         <h2 class="name">
                                         
@@ -190,23 +152,12 @@
                                         <p class="duration">{{ Movie.duration }}</p>
                                         
                                     </div>
-                            </div>
-                                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <div>
-                                                        <iframe width="100%" height="350" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
                                 </div>
                                 {% endfor %}                             
                         </div>
                     </div>
+                    
+                    
 
 </div>
     <!-- top-movie-area-end -->
@@ -224,92 +175,49 @@
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12">
                     <div class="upcoming-movie-feature">
                         <div class="umf-single single-top-movie">
+                                {% for upcomingone in all_upcomingone %}
                             <div class="img">
                                 <a href="04_movie-details.html">
-                                    <img src='{%static "images/upcoming-b-1.jpg"%}' alt="">
+                                    <img src="/media/{{ upcomingone.picturefour }}" alt="">
                                 </a>
                             </div>
-                            <span class="view-counter">759k Views</span>
                             <div class="content">
                                 <h2 class="name">
-                                    <a href="04_movie-details.html">Jecu Jek English Horror Movie Are Available</a>
+                                    <a>{{ upcomingone.namefour }}</a>
                                 </h2>
-                                <p class="time" style="color: #69a728;">49 Day To Go </p>
+                                <p class="timer" id="demo" style="color: #69a728;"></p>
                                 <p id="duration" style="color: #69a728;"></p>
                                     
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
             </div>         
                 
                     <div class="ums-all">
+                            {% for upcomingtwo in all_upcomingtwo %}
                             <div class="row">
-                        
+                                    
                                         <div class="ums-single single-top-movie"style="margin-left: 20px;">
                                                 <div class="img">
                                                     <a href="04_movie-details.html">
-                                                        <img src='{%static "images/upcoming-s-3.jpg"%}' alt="">
+                                                        <img src="/media/{{ upcomingtwo.picturefive }}" alt="">
                                                     </a>
                                                 </div>
-                                                <span class="view-counter">125k Views</span>
                                                 <div class="content">
                                                     <h2 class="name">
-                                                        <a href="04_movie-details.html">Sport Life</a>
+                                                        <a>{{ upcomingtwo.namefive }}</a>
                                                     </h2>
-                                                    <p class="time">Provide our site</p>
-                                                    <p class="date">October 26, 2018</p>
+                                                    <p class="time">{{ upcomingtwo.descriptionfive }}</p>
+                                                    <p class="date">{{ upcomingtwo.datefive }}</p>
                                                 </div>
-                                            </div>
-                          
-                                            <div class="ums-single single-top-movie" style="margin-left: 20px;">
-                                                <div class="img">
-                                                    <a href="04_movie-details.html">
-                                                        <img src='{%static "images/upcoming-s-3.jpg"%}' alt="">
-                                                    </a>
-                                                </div>
-                                                <span class="view-counter">125k Views</span>
-                                                <div class="content">
-                                                    <h2 class="name">
-                                                        <a href="04_movie-details.html">Love War 5</a>
-                                                    </h2>
-                                                    <p class="time">Provide our site</p>
-                                                    <p class="date">October 26, 2018</p>
-                                                </div>
-                                            </div>
-                            </div>               
-                            <div class="row" style="margin-top: -25px;">
-                                    <div class="ums-single single-top-movie" style="margin-left: 20px;">
-                                        <div class="img">
-                                            <a href="04_movie-details.html">
-                                                <img src='{%static "images/upcoming-s-4.jpg"%}' alt="">
-                                            </a>
-                                        </div>
-                                        <span class="view-counter">125k Views</span>
-                                        <div class="content">
-                                            <h2 class="name">
-                                                <a href="04_movie-details.html">Fire Sermon</a>
-                                            </h2>
-                                            <p class="time">Provide our site</p>
-                                            <p class="date">October 26, 2018</p>
-                                        </div>
-                                    </div>
-                                    <div class="ums-single single-top-movie" style="margin-left: 20px;">
-                                        <div class="img">
-                                            <a href="04_movie-details.html">
-                                                <img src='{%static "images/upcoming-s-1.jpg"%}' alt="">
-                                            </a>
-                                        </div>
-                                        <span class="view-counter">125k Views</span>
-                                        <div class="content">
-                                            <h2 class="name">
-                                                <a href="04_movie-details.html">Fish Warehouse</a>
-                                            </h2>
-                                            <p class="time">Provide our site</p>
-                                            <p class="date">October 26, 2018</p>
-                                        </div>
-                                    </div>
+                                        </div> 
+                                        {% endfor %}      
                             </div>
+                            
+                           
                     </div>
+    </div>
     <!-- upcoming-movie-area-end -->
     <!-- movie-tab-area-start -->
     <div class="movie-tab-area">
@@ -341,96 +249,31 @@
                         <div class="tab-pane fade show active" id="grid" role="tabpanel">
                             <div class="grid-movies">
                                 <div class="row">
-                                   
+                                        {% for toprating in all_toprating %}
                                         <div class="single-top-movie" style="margin-left: 60px;">
                                             <div class="img">
                                                 <a href="04_movie-details.html">
-                                                    <img src='{%static "images/latest-3.jpg"%}' alt="">
+                                                    <img src="/media/{{ toprating.picturesix }}" alt="">
                                                 </a>
                                             </div>
-                                            <span class="view-counter">426k Views</span>
                                               <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a> 
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a href="04_movie-details.html">Bokeh Movie (2017)</a>
+                                                    <a href="">{{ toprating.namesix }}</a>
                                                 </h2>
-                                                <p class="time">Release Date</p>
-                                                <p class="date">October 26, 2018</p>
-                                                <p class="duration">02 :40 :12</p>
+                                                <p class="time">{{ toprating.descriptionsix }}</p>
+                                                <p class="date">{{ toprating.datesix }}</p>
+                                                <p class="duration">{{ toprating.durationsix }}</p>
                                             </div>
                                         </div>
-                            <div class="single-top-movie" style="margin-left:20px;">
-                                <div class="img">
-                                    <a href="04_movie-details.html">
-                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
-                                    </a>
-                                </div>
-                                <span class="view-counter">426k Views</span>
-                                   <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
-                                <div class="content">
-                                    <h2 class="name">
-                                        <a href="04_movie-details.html">Bokeh Movie (2017)</a>
-                                    </h2>
-                                    <p class="time">Release Date</p>
-                                    <p class="date">October 26, 2018</p>
-                                    <p class="duration">01 :54 :43</p>
-                                </div>
-                            </div>
-                            <div class="single-top-movie"  style="margin-left:20px;">
-                                <div class="img">
-                                    <a href="04_movie-details.html">
-                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
-                                    </a>
-                                </div>
-                                <span class="view-counter">263k Views</span>
-                                  <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a> 
-                                <div class="content">
-                                    <h2 class="name">
-                                        <a href="04_movie-details.html">Gitter Horror Movie</a>
-                                    </h2>
-                                    <p class="time">Release Date</p>
-                                    <p class="date">October 26, 2018</p>
-                                    <p class="duration">02 :30 :01</p>
-                                </div>
-                            </div>
-                            <div class="single-top-movie"  style="margin-left:20px;">
-                                <div class="img">
-                                    <a href="04_movie-details.html">
-                                        <img src='{%static "images/latest-3.jpg"%}' alt="">
-                                    </a>
-                                </div>
-                                <span class="view-counter">263k Views</span>
-                                 <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a>
-                                <div class="content">
-                                    <h2 class="name">
-                                        <a href="04_movie-details.html">Gitter Horror Movie</a>
-                                    </h2>
-                                    <p class="time">Release Date</p>
-                                    <p class="date">October 26, 2018</p>
-                                    <p class="duration">02 :30 :01</p>
-                                </div>
-                            </div>
+                                        {% endfor %}
                      </div>   
                             
             </div>
         </div>
     </div>
     <!-- movie-tab-area-end -->
-    <!-- coming-area-start -->
-    <div class="coming-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="coming">
-                        <img src='{%static "images/find-bg.jpg"%}' alt="">
-                        <h2 class="intro">Animation Comming soon Movie</h2>
-                        <h3 class="title">Find Your Flock</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- coming-area-end -->
+   
     <!-- about-movie-area-start -->
     <div class="about-movie-area">
         <div class="container">
@@ -476,69 +319,40 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
-                    <div class="feature-news">
-                        <div class="single-news">
-                            <div class="img">
-                                <img src='{%static "images/latest-news-b-1.jpg"%}' alt="">
-                            </div>
-                            <div class="content">
-                                <span class="date">October-17-2017</span>
-                                <h2 class="title">
-                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem Ipsum is there fore always free from.</a>
-                                </h2>
-                                <p class="text">Pellentesque imperdiet sagittis est, vitae consectetur enim feugiat quis. Nunc purus eros,
-                                    feugiat at enim sit amet, dictum maximus nisl. In vitae lorem vitae mauris vestibulum
-                                    venenatis eget a urna. Etiam vehicula lorem.</p>
-                                <div class="meta-more">
-                                    <a class="more" href="11_blog-details.html">Read More</a>
-                                </div>
-                            </div>
+            <footer id="footer">
+                    <div class="container">
+                        <div class="row">
+                        <div class="footer-wrapper">
+                          <div class="col-md-3 col-sm-3" style="margin-left: 40px;">
+                            <a href=""><img src="pic/logo-black.png" alt="" class="footer-logo" /></a>
+                            <ul class="list-inline social-icons">
+                                <li><a href="#"><i class="fa fa-facebook"style="font-size: 19px;"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"style="font-size: 19px;"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"style="font-size: 19px;"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"style="font-size: 19px;"></i></a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-2 col-sm-2"style="margin-left: 40px;">
+                            <h5>For individuals</h5>
+                            <ul class="footer-links">
+                              <li><a href="{% url 'movie_site:register' %}"style="font-size: 19px;">Register</a></li>
+                              <li><a href="{% url 'movie_site:login' %}"style="font-size: 19px;">Login</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-3 col-sm-3"style="margin-left: 40px;">
+                            <h5>Contact Us</h5>
+                            <ul class="contact">
+                              <li><i class="material-icons"style="font-size: 19px;">call</i>+10000000000</li>
+                              <li><i class="material-icons"style="font-size: 19px;">email</i>hi@gmail.com</li>
+                              <li><i class="material-icons"style="font-size: 19px;">location_on</i>kolkata</li>
+                            </ul>
+                          </div>
+                        </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 col-md-12 col-sm-12 col-12">
-                    <div class="news-carousel owl-carousel owl-loaded owl-drag">
-                        <div class="owl-stage-outer">
-                            <div class="owl-stage">
-                                <div class="owl-item cloned">
-                                    <div class="all-small-news">
-                                        <div class="single-news">
-                                            <div class="img">
-                                                <img src='{%static "images/latest-news-s-1.jpg"%}' alt="">
-                                            </div>
-                                            <div class="content">
-                                                <h2 class="title">
-                                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem fore always free from.</a>
-                                                </h2>
-                                                <div class="meta-more">
-                                                    <a class="more" href="11_blog-details.html">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-news">
-                                            <div class="img">
-                                                <img src='{%static "images/latest-news-s-2.jpg"%}'alt="">
-                                            </div>
-                                            <div class="content">
-                                                <h2 class="title">
-                                                    <a href="11_blog-details.html">Jecu Jek English Horor Movie Lorem fore always free from.</a>
-                                                </h2>
-                                                <div class="meta-more">
-                                                    <a class="more" href="11_blog-details.html">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>       
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                      </footer>
+           </div>
+           </div> 
      <button onclick="topFunction()" id="myBtn" title="Go to top">top</button>
     <!-- news-area-end -->
     <!-- footer-start -->
@@ -596,8 +410,35 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 </script>
-
-                            
-</body>
-
-</html>
+<!--timer script -->
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 18, 2020 15:37:25").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get todays date and time
+      var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+        
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      
+      
+        
+      // Output the result in an element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h ";
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
+    <!--timer script end --> 
+    {% endblock %}                         

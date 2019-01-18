@@ -19,11 +19,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 
+admin.site.site_header = "FILM CAST(GUDDU,DEEPAK JANGID)"
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('movie_site.urls', namespace="movie_site")),
 ]
-
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

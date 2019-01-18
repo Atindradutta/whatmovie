@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.http import HttpResponse
 
-from movie_site.models import Movie,slide
+from movie_site.models import Movie,slide,bollywoodone,tollywoodtwo,hollywoodthree,upcomingone,upcomingtwo,toprating
 from django.template.context_processors import csrf
 from django.db.models import Q 
 
@@ -58,29 +58,50 @@ def register(request):
 
 def home(request):
    movies = Movie.objects.all()
-   all_slide=slide.objects.all()	
-   return render(request,'movie/home.html',{'movies':movies},{'all_slide':all_slide})
+   all_slide=slide.objects.all()
+   all_upcomingone=upcomingone.objects.all()
+   all_upcomingtwo=upcomingtwo.objects.all()
+   all_toprating=toprating.objects.all()
 
-                
-def hollywood(request):
-   return render(request,'movie/hollywood.html')
+   context={
+	   'movies':movies,
+	   'all_slide':all_slide,
+	   'all_upcomingone':all_upcomingone,
+	   'all_upcomingtwo':all_upcomingtwo,
+	   'all_toprating':all_toprating
+   }	
+   return render(request,'movie/home.html',context)
 
 def bollywood(request):
-   return render(request,'movie/bollywood.html')
+	all_bollywood=bollywoodone.objects.all()
+	all_slide=slide.objects.all()
+	context={
+		'all_bollywood':all_bollywood,
+		'all_slide':all_slide
+   }	
+	return render(request,'movie/bollywood.html',context)
+
+
+def hollywood(request):
+	all_hollywood=hollywoodthree.objects.all()
+	all_slide=slide.objects.all()
+	context={
+		'all_slide':all_slide,
+		'all_hollywood':all_hollywood
+	}	
+	return render(request,'movie/hollywood.html',context)
+
 
 def tollywood(request):
-   return render(request,'movie/tollywood.html')
+	all_tollywood=tollywoodtwo.objects.all()
+	all_slide=slide.objects.all()
+	context={
+		'all_slide':all_slide,
+		'all_tollywood':all_tollywood
+	}
+	return render(request,'movie/tollywood.html',context)
+def player(request):
+	movies = Movie.objects.all()
+	return render(request,'movie/player.html',{'movies':movies})
 
-#def home(request):
-	#if request.method=='POST':
-		#srch = request.POST['srh']
 
-		#if srch:
-			#match = Movie.objects.filter(Q(name__icontains=srch))
-			#if match:
-				#return render(request,'movie/home.html',{'Movies':match})
-			#else:
-				#messages.error(request,'no result found')
-		#else:
-			#return HttpResponseRedirect('movie/home/')
-	#return render(request,'movie/home.html')											   
