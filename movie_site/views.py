@@ -82,6 +82,7 @@ def bollywood(request):
 	return render(request,'movie/bollywood.html',context)
 
 
+
 def hollywood(request):
 	all_hollywood=hollywoodthree.objects.all()
 	all_slide=slide.objects.all()
