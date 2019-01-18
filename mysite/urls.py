@@ -21,6 +21,7 @@ from django.contrib import admin
 
 admin.site.site_header = "FILM CAST(GUDDU,DEEPAK JANGID)"
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('movie_site.urls', namespace="movie_site")),

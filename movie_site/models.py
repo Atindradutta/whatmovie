@@ -101,6 +101,7 @@ class toprating(models.Model):
     picturesix = models.ImageField(upload_to='static',null=True,blank=True)
     Pathsix=models.CharField(max_length=100,null=True)
 
+
     def save(self,*args,**kwargs):
 	self.slug = slugify(self.namesix)
 	super(toprating,self).save(*args,**kwargs)

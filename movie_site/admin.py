@@ -5,6 +5,7 @@ from django.contrib import admin
 
 from .models import Movie,slide,bollywoodone,hollywoodthree,tollywoodtwo,upcomingone,upcomingtwo,toprating
 
+
 admin.site.register(Movie)
 admin.site.register(slide)
 admin.site.register(bollywoodone)
