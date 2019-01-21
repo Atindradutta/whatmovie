@@ -24,6 +24,15 @@ SECRET_KEY = 'z48#4et=oq$9$-syt35!3+cbk-n6!iur%tj4wy31oetsq@v60b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SEND_GRID_API_KEY ='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'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'atindradutta'
+EMAIL_HOST_PASSWORD = 'gudduloha12'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'atindradutta9@gmail.com'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'atindraduttaloha9@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ALLOWED_HOSTS = []
 
