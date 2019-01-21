@@ -37,14 +37,23 @@
                                     </li>
                                    
                                     <li>
-                                        <a href="contact.html">CONTACT US</a>
+                                        <a href="{% url 'movie_site:contact' %}">CONTACT US</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
-                                    </li>
-                                    <li>
-                                            <a href="{% url 'movie_site:login' %}">SIGN IN</a>
-                                    </li>
+                                        <a>ACCOUNT</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a>LOGOUT</a>
+                                            </li>
+                                        </ul>
+                                </li>
                                 </ul>
                             </nav>
                         </div>
@@ -177,7 +186,6 @@
 </div>
     <!-- feature-movie-area-end -->
 </body>
-</html>
 
      <!-- Scripts -->
      <script src='{%static "javascript/jquery-3.2.0.min.js" %}'></script>

@@ -37,13 +37,22 @@
                                     </li>
                                    
                                     <li>
-                                        <a href="contact.html">CONTACT US</a>
+                                        <a href="{% url 'movie_site:contact' %}">CONTACT US</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
-                                    </li>
-                                    <li>
-                                            <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                        <a>ACCOUNT</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a>LOGOUT</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
