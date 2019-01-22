@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^register/', views.register,name='register'),
     url(r'^login/$',views.login,name='login'),
     url(r'^search/$',views.search_movie,name="search"),
+    url(r'^player/', views.player,name='player'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

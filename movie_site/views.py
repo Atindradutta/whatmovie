@@ -115,8 +115,7 @@ def tollywood(request):
 
 
 def player(request):
-	movies = Movie.objects.all()
-	return render(request,'movie/player.html',{'movies':movies})
+	return render(request,'movie/player.html')
 
 
 def contact(request):
