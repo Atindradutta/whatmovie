@@ -46,14 +46,14 @@
                                             <a>ACCOUNT</a>
                                             <ul class="drop">
                                                 <li>
-                                                    <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                                    <a href="{% url 'register' %}">REGISTER</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                                    <a href="{% url 'login' %}">SIGN IN</a>
                                                 </li>
                                                 
                                                  <li>
-                                                    <a>LOGOUT</a>
+                                                    <a href="{% url 'logout' %}">LOGOUT</a>
                                                 </li>
                                             </ul>
                                     </li>
@@ -135,10 +135,9 @@
                         
                     </div>  
                 </div>
-                
             </div>
         </div>
-    </div>              
+             
     <div class="row">
         <div class="col-12">     
             <div class="tab-content" id="nav-tabContent">
@@ -149,7 +148,7 @@
                             <div class="single-top-movie" style="margin-left:65px;">
                                     <div class="img">
                                         <a href="04_movie-details.html">
-                                            <img src= "/media/{{ Movie.picture }}"alt="">
+                                            <img src= "/media/{{ Movie.picture }}" >
                                         </a>
                                     </div>
                                        <a class="material-icons" href="{% url 'movie_site:player' %}"> play_circle_outline</a>
@@ -163,72 +162,50 @@
                                         <p class="duration">{{ Movie.duration }}</p>
                                         
                                     </div>
-                                </div>
+                            </div>
                                 {% endfor %}                             
                         </div>
                     </div>
-                    
-                    
-
 </div>
-    <!-- top-movie-area-end -->
-    <!-- upcoming-movie-area-start -->
-    <div class="upcoming-movie-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2>UPCOMING MOVIES</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
-                    <div class="upcoming-movie-feature">
-                        <div class="umf-single single-top-movie">
-                                {% for upcomingone in all_upcomingone %}
-                            <div class="img">
-                                <a href="04_movie-details.html">
-                                    <img src="/media/{{ upcomingone.picturefour }}" alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h2 class="name">
-                                    <a>{{ upcomingone.namefour }}</a>
-                                </h2>
-                                <p class="timer" id="demo" style="color: #69a728;"></p>
-                                <p id="duration" style="color: #69a728;"></p>
+             <!-- top-movie-area-end -->
+             <!-- upcoming-movie-area-start -->
+                        <div class="upcoming-movie-area">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="section-title">
+                                            <h2>UPCOMING MOVIES</h2>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>       
+                                <div class="ums-all">
                                     
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-            </div>         
-                
-                    <div class="ums-all">
-                            {% for upcomingtwo in all_upcomingtwo %}
-                            <div class="row">
-                                    
-                                        <div class="ums-single single-top-movie"style="margin-left: 20px;">
-                                                <div class="img">
-                                                    <a href="04_movie-details.html">
-                                                        <img src="/media/{{ upcomingtwo.picturefive }}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="name">
-                                                        <a>{{ upcomingtwo.namefive }}</a>
-                                                    </h2>
-                                                    <p class="time">{{ upcomingtwo.descriptionfive }}</p>
-                                                    <p class="date">{{ upcomingtwo.datefive }}</p>
-                                                </div>
-                                        </div> 
-                                        {% endfor %}      
-                            </div>
-                            
-                           
-                    </div>
+                                            <div class="row">
+                                                    {% for upcomingtwo in all_upcomingtwo %}
+                                                <div class="ums-single single-top-movie"style="margin-left: 55px;">
+                                                        <div class="img">
+                                                            <a href="04_movie-details.html">
+                                                                <img src="/media/{{ upcomingtwo.picturefive }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="content">
+                                                            <h2 class="name">
+                                                                <a>{{ upcomingtwo.namefive }}</a>
+                                                            </h2>
+                                                            <p class="time">{{ upcomingtwo.descriptionfive }}</p>
+                                                            <p class="date">{{ upcomingtwo.datefive }}</p>
+                                                        </div>
+                                                </div> 
+                                                {% endfor %}      
+                                            </div>
+                                </div>
+                         </div>  
+                  </div>
+               </div>
+             </div>
     </div>
+</div>
     <!-- upcoming-movie-area-end -->
     <!-- movie-tab-area-start -->
     <div class="movie-tab-area">
@@ -254,32 +231,32 @@
                 
             </div>
         </div>
-    </div>                  
+                 
     <div class="row">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="grid" role="tabpanel">
                             <div class="grid-movies">
                                 <div class="row">
                                         {% for toprating in all_toprating %}
-                                        <div class="single-top-movie" style="margin-left: 60px;">
+                                        <div class="single-top-movie" style="margin-left: 65px;">
                                             <div class="img">
                                                 <a href="04_movie-details.html">
-                                                    <img src="/media/{{ toprating.picturesix }}" alt="">
+                                                    <img src="/media/{{ toprating.picture }}">
                                                 </a>
                                             </div>
                                               <a class="material-icons" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8"> play_circle_outline</a> 
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a href="">{{ toprating.namesix }}</a>
+                                                    <a href="">{{ toprating.name }}</a>
                                                 </h2>
-                                                <p class="time">{{ toprating.descriptionsix }}</p>
-                                                <p class="date">{{ toprating.datesix }}</p>
-                                                <p class="duration">{{ toprating.durationsix }}</p>
+                                                <p class="time">{{ toprating.description }}</p>
+                                                <p class="date">{{ toprating.date }}</p>
+                                                <p class="duration">{{ toprating.duration }}</p>
                                             </div>
                                         </div>
                                         {% endfor %}
                      </div>   
-                            
+                 </div>           
             </div>
         </div>
     </div>
@@ -295,6 +272,7 @@
                     </div>
                 </div>
             </div>
+  
             
     <!-- about-movie-area-end -->
     <!-- newsletter-area-start -->
@@ -346,8 +324,8 @@
                           <div class="col-md-2 col-sm-2"style="margin-left: 40px;">
                             <h5>For individuals</h5>
                             <ul class="footer-links">
-                              <li><a href="{% url 'movie_site:register' %}"style="font-size: 19px;">Register</a></li>
-                              <li><a href="{% url 'movie_site:login' %}"style="font-size: 19px;">Login</a></li>
+                              <li><a href="{% url 'register' %}"style="font-size: 19px;">Register</a></li>
+                              <li><a href="{% url 'login' %}"style="font-size: 19px;">Login</a></li>
                             </ul>
                           </div>
                           <div class="col-md-3 col-sm-3"style="margin-left: 40px;">

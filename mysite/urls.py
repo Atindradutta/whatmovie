@@ -20,14 +20,14 @@ from django.contrib import admin
 from movie_site import views
 
 
-admin.site.site_header = "FILM CAST(GUDDU,DEEPAK JANGID)"
+admin.site.site_header = "FILM CAST"
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('movie_site.urls', namespace="movie_site")),
-    url(r'^logged_out/$',views.log_out,name="log_out"),
+    url(r'^logout/$',views.logout_view,name="logout"),
     url(r'^register/', views.register,name='register'),
-    url(r'^login/$',views.login,name='login'),
+    url(r'^logged_in/$',views.logged_in,name='login'),
     url(r'^search/$',views.search_movie,name="search"),
     url(r'^player/', views.player,name='player'),
 ]

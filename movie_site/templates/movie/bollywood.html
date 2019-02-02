@@ -44,14 +44,14 @@
                                         <a>ACCOUNT</a>
                                         <ul class="drop">
                                             <li>
-                                                <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                                <a href="{% url 'register' %}">REGISTER</a>
                                             </li>
                                             <li>
-                                                <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                                <a href="{% url 'login' %}">SIGN IN</a>
                                             </li>
                                             
                                              <li>
-                                                <a>LOGOUT</a>
+                                                <a href="{% url 'logout' %}">LOGOUT</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -160,7 +160,7 @@
                                         <div class="single-top-movie">
                                             <div class="img">
                                                 <a href="#">
-                                                    <img src="/media/{{ bollywoodone.pictureone }}" alt="">
+                                                    <img src="/media/{{ bollywoodone.picture }}" >
                                                 </a>
                                             </div>
                                             <a class="popup-youtube" href="">
@@ -168,11 +168,11 @@
                                             </a>
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a>{{ bollywoodone.nameone }}</a>
+                                                    <a>{{ bollywoodone.name }}</a>
                                                 </h2>
-                                                <p class="time">{{ bollywoodone.descriptionone }}</p>
-                                                <p class="date">{{ bollywoodone.dateone }}</p>
-                                                <p class="duration">{{ bollywoodone.durationone }}</p>
+                                                <p class="time">{{ bollywoodone.description }}</p>
+                                                <p class="date">{{ bollywoodone.date }}</p>
+                                                <p class="duration">{{ bollywoodone.duration }}</p>
                                             </div>
                                         </div>
                                     </div>

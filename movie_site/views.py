@@ -1,37 +1,42 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render,redirect,get_object_or_404
-from django.contrib.auth import authenticate,login,logout
+# from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate,logout
+from django.contrib.auth import login as auth_login
+# from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 
 from django.template import RequestContext
 from django.http import HttpResponse
 
-from movie_site.models import Movie,slide,bollywoodone,tollywoodtwo,hollywoodthree,upcomingone,upcomingtwo,toprating,contact
+from movie_site.models import Movie,slide,contact,upcomingtwo
 from django.template.context_processors import csrf
 from django.db.models import Q 
 import re
 from. forms import ContactForm
 
-def login(request):
-	if 'user' in request.session and request.user.is_authenticated():
-		movies = Movie.objects.all()
-		return render(request, 'movie/home.html', {'movies': movies})
+def logged_in(request):
+	# if request.user.is_authenticated():
+	# 	movies = Movie.objects.all()
+	# 	return render(request, 'movie/home.html', {'movies': movies})
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
-		if not user.objects.filter(username=username).exists():
+		if not User.objects.filter(username=username).exists():
 			return render(request, 'movie/login.html', {'error_message': 'Please register First'})
 		user = authenticate(username=username, password=password)
 		if user:
 			if user.is_active:
-				login(requests)
+				auth_login(request, user)
 				request.session['user']=username
 				movies = Movie.objects.all()
 				return render(request, 'movie/home.html', {'movies': movies})
-		else:
-			return render(request, 'movie/home.html', {'error_message': 'Your account has been suspended'})
-	return render(request, 'movie/login.html', {'error_message': 'Wrong Credentials'})
+			else:
+				return render(request, 'movie/login.html', {'error_message': 'Your account has been suspended'})
+		return render(request, 'movie/login.html', {'error_message': 'Wrong Credentials'})
+	return render(request,'movie/login.html')
+
 
 def register(request):
    if request.method == "POST":
@@ -50,67 +55,62 @@ def register(request):
 			user.set_password(password)
 			user.save()
 			user=authenticate(username=username,password=password)
-			login(user)
+			auth_login(request,user)
 			request.session['user']=username
 			movies=Movie.objects.all()
-			return render(request,'movie/register.html',{'movies':movies})
+			return render(request,'movie/home.html',{'movies':movies})
                   
    return render(request,'movie/register.html')
 
 
-def log_out(request):
-	if 'user' in request.session:
-		del request.session['user']
-		logout(request)
-		return redirect('logged_in')	
-
-
-
+def logout_view(request):
+    logout(request)
+    return redirect('login')	
 
 def home(request):
 	movies = Movie.objects.all()
 	all_slide=slide.objects.all()
-	all_upcomingone=upcomingone.objects.all()
 	all_upcomingtwo=upcomingtwo.objects.all()
-	all_toprating=toprating.objects.all()
+	all_type_movie = movies.filter(catagory__in=[1, 2, 3, 4])
+	all_toprating = movies.filter(catagory=4)
 	context={
 		'movies':movies,
+		'all_type_movie':all_type_movie,
 		'all_slide':all_slide,
-		'all_upcomingone':all_upcomingone,
 		'all_upcomingtwo':all_upcomingtwo,
 		'all_toprating':all_toprating
+
     }	
 	return render(request,'movie/home.html',context)
 
 def bollywood(request):
-	all_bollywood=bollywoodone.objects.all()
+	movies = Movie.objects.filter(catagory=1)
 	all_slide=slide.objects.all()
 	context={
-		'all_bollywood':all_bollywood,
+		'all_bollywood':movies,
 		'all_slide':all_slide
    }	
 	return render(request,'movie/bollywood.html',context)
 
-
-
 def hollywood(request):
-	all_hollywood=hollywoodthree.objects.all()
+	movies = Movie.objects.filter(catagory=2)
 	all_slide=slide.objects.all()
 	context={
-		'all_slide':all_slide,
-		'all_hollywood':all_hollywood
-	}	
+		'all_hollywood':movies,
+		'all_slide':all_slide
+   }	
 	return render(request,'movie/hollywood.html',context)
 
 
 def tollywood(request):
-	all_tollywood=tollywoodtwo.objects.all()
+	movies = Movie.objects.filter(catagory=3)
 	all_slide=slide.objects.all()
 	context={
-		'all_slide':all_slide,
-		'all_tollywood':all_tollywood
-	}
+		'all_tollywood':movies,
+		'all_slide':all_slide
+   }	
 	return render(request,'movie/tollywood.html',context)
+
 
 
 
@@ -133,10 +133,6 @@ def contact(request):
 			return HttpResponseRedirect('movie/contact.html')
 		
 	return render(request, 'movie/contact.html')
-
-
-
-
 
 def search_movie(request):
 	if request.method == 'POST':

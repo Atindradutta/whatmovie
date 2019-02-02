@@ -775,6 +775,7 @@ header {}
     top: 100%;
     width: 100%;
     z-index: 99;
+    border-radius: 15px;
 }
 
 .slicknav_nav ul {
