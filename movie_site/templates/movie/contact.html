@@ -47,10 +47,10 @@
                                             <a>ACCOUNT</a>
                                             <ul class="drop">
                                                 <li>
-                                                    <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                                    <a href="{% url 'register' %}">REGISTER</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                                    <a href="{% url 'login' %}">SIGN IN</a>
                                                 </li>
                                                 
                                                  <li>
@@ -82,58 +82,45 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-12 col-12">
                         <div class="free-ticket">
-                            <a href="#" style="font-size:30px;">.CONTACT.</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-     <!-- other-page-breadcumb-area-start -->
-    <div class="other-page-breadcumb-area bg-with-ebony">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-md-9 col-sm-9 col-12">
-                    <div class="op-breadcumb">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- other-page-breadcumb-area-end -->
     <!-- contact-area-start -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="contact-us">
-                        <h4 class="contact-title">Contact Us</h4>
+                        <h4 class="contact-title" style="text-align: center;">CONTACT US</h4>
                         <div class="cf-msg"></div>
                         <form method="post" action="{% url 'movie_site:contact' %}">
                                 {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="cf-input-box">
-                                        <input type="text" placeholder="Name" name="first_name" required>
+                                        <input type="text" placeholder=" First Name" name="first_name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="cf-input-box">
-                                        <input type="text" placeholder="Name"  name="last_name" required>
+                                        <input type="text" placeholder=" Last Name"  name="last_name" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="cf-input-box">
-                                            <input type="text" placeholder="Email" name="email" required>
+                                            <input type="text" placeholder=" Enter your Email" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="cf-input-box">
-                                        <textarea class="contact-textarea" placeholder="Message" name="message" required></textarea>
+                                        <textarea class="contact-textarea" placeholder=" Somthing Message" name="message" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="cf-input-box">
-                                        <button id="submit" class="cont-submit btn-contact" name="submit">Submit</button>
+                                        <button id="submit" class="cont-submit btn-contact" name="submit" style="border-radius: 22px;">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +129,7 @@
                 </div>
                 <div class="col-lg-6 col-md-8 col-sm-12 col-12">
                     <div class="contact-info">
-                        <h4 class="contact-title">Office Address</h4>
+                        <h4 class="contact-title">OFFICE ADDRESS</h4>
                         <ul class="info">
                             <li>Moview Inc. Kolkata,West Bengal,Pin-700129</li>
                             <li>TollFree Mobile: 1800 3455 9872 </li>
@@ -165,7 +152,7 @@
                             <div class="flogo">
                                 <img src="New folder/filmy.png" alt="">
                             </div>
-                            <p class="text">we provide assistance 24/7 for your pre sales questions</p>
+                            <p class="text">we provide assistance 24/7 for your presales questions</p>
                         </div>
                     </div>
                 </div>

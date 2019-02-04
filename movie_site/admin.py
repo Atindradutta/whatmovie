@@ -10,3 +10,4 @@ admin.site.register(slide)
 admin.site.register(contact)
 admin.site.register(upcomingtwo)
 
+

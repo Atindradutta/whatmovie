@@ -118,21 +118,16 @@ def player(request):
 	return render(request,'movie/player.html')
 
 
+
 def contact(request):
-	form_class = ContactForm
 	if request.method == "POST":
-		form = form_class(request.POST)
+		form = ContactForm(request.POST)
 		
 		if form.is_valid():
-			first_name = request.POST.get('first_name')
-			last_name = request.POST.get('first_name')
-			email = request.POST.get('email')
-			message = request.POST.get('message')
-			
-			send_mail('Subject here', message, email, ['atindradutta9.com'], fail_silently=False)
-			return HttpResponseRedirect('movie/contact.html')
-		
-	return render(request, 'movie/contact.html')
+			form.save()
+	else:
+		form = ContactForm()
+	return render(request, 'movie/contact.html',{'form':form})
 
 def search_movie(request):
 	if request.method == 'POST':

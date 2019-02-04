@@ -39,6 +39,7 @@ class slide(models.Model):
     images = models.ImageField(upload_to='static',null=True,blank=True)
 
 
+
 class upcomingtwo(models.Model):
     namefive = models.CharField(null=True,max_length=40, unique=True)
     descriptionfive = models.CharField(null=True,max_length=100)
