@@ -37,13 +37,22 @@
                                     </li>
                                    
                                     <li>
-                                        <a href="contact.html">CONTACT US</a>
+                                        <a href="{% url 'movie_site:contact' %}">CONTACT US</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
-                                    </li>
-                                    <li>
-                                            <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                        <a>ACCOUNT</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'register' %}">REGISTER</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'login' %}">SIGN IN</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a href="{% url 'logout' %}">LOGOUT</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
@@ -58,6 +67,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="header-bottom-area">
             <div class="container">
                 <div class="row">
@@ -69,18 +79,19 @@
                     <div class="col-lg-9 col-md-8 col-sm-12 col-12">
                         <div class="search-signup">
                             <div class="search">
-                                <form action="#">
-                                    <div class="search-input-box">
-                                        <select>
-                                            <option>Select Movie Type</option>
-                                        </select>
-                                        <input type="text"  placeholder="     Enter Movie Name">
-                                        <button>
-                                               <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                <form action="{% url 'search' %}" method="post" role=" search">
+                                        {% csrf_token %}
+                                           <div class="search-input-box">
+                                                <select>
+                                                     <option>Search movie</option>
+                                                </select>
+                                               <input type="text" name="search">
+                                    <button>
+                                           <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -149,7 +160,7 @@
                                         <div class="single-top-movie">
                                             <div class="img">
                                                 <a href="#">
-                                                    <img src="/media/{{ hollywoodthree.picturethree }}" alt="">
+                                                    <img src="/media/{{ hollywoodthree.picture }}" >
                                                 </a>
                                             </div>
                                             <a class="popup-youtube" href="">
@@ -157,11 +168,11 @@
                                             </a>
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a>{{ hollywoodthree.namethree }}</a>
+                                                    <a>{{ hollywoodthree.name }}</a>
                                                 </h2>
-                                                <p class="time">{{ hollywoodthree.descriptionthree }}</p>
-                                                <p class="date">{{ hollywoodthree.datethree }}</p>
-                                                <p class="duration">{{ hollywoodthree.durationthree }}</p>
+                                                <p class="time">{{ hollywoodthree.description }}</p>
+                                                <p class="date">{{ hollywoodthree.date }}</p>
+                                                <p class="duration">{{ hollywoodthree.duration }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -176,6 +187,7 @@
     </div>
 </div>
     <!-- feature-movie-area-end -->
+    
 </body>
 </html>
      <!-- Scripts -->

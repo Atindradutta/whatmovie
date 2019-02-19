@@ -25,6 +25,7 @@
                                         <a href="{% url 'movie_site:home' %}">HOME</a>
                                     </li>
                                     <li>
+                                        
                                         <a>TYPE</a>
                                         <ul class="drop">
                                             <li>
@@ -40,10 +41,19 @@
                                         <a href="contact.html">CONTACT US</a>
                                     </li>
                                     <li>
-                                         <a href="{% url 'movie_site:register' %}">REGISTER</a>
-                                     </li>
-                                    <li>
-                                         <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                        <a>ACCOUNT</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'register' %}">REGISTER</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'login' %}">SIGN IN</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a href="{% url 'logout' %}">LOGOUT</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </nav>
@@ -69,12 +79,13 @@
                     <div class="col-lg-9 col-md-8 col-sm-12 col-12">
                         <div class="search-signup">
                             <div class="search">
-                                <form action="#">
-                                    <div class="search-input-box">
-                                        <select>
-                                            <option>Select Movie Type</option>
-                                        </select>
-                                        <input type="text"  placeholder="     Enter Movie Name">
+                                    <form action="{% url 'search' %}" method="post" role=" search">
+                                            {% csrf_token %}
+                                               <div class="search-input-box">
+                                                    <select>
+                                                         <option>Search movie</option>
+                                                    </select>
+                                                   <input type="text" name="search">
                                         <button>
                                                <span class="glyphicon glyphicon-search"></span>
                                         </button>
@@ -149,7 +160,7 @@
                                         <div class="single-top-movie">
                                             <div class="img">
                                                 <a href="#">
-                                                    <img src="/media/{{ bollywoodone.pictureone }}" alt="">
+                                                    <img src="/media/{{ bollywoodone.picture }}" >
                                                 </a>
                                             </div>
                                             <a class="popup-youtube" href="">
@@ -157,11 +168,11 @@
                                             </a>
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a>{{ bollywoodone.nameone }}</a>
+                                                    <a>{{ bollywoodone.name }}</a>
                                                 </h2>
-                                                <p class="time">{{ bollywoodone.descriptionone }}</p>
-                                                <p class="date">{{ bollywoodone.dateone }}</p>
-                                                <p class="duration">{{ bollywoodone.durationone }}</p>
+                                                <p class="time">{{ bollywoodone.description }}</p>
+                                                <p class="date">{{ bollywoodone.date }}</p>
+                                                <p class="duration">{{ bollywoodone.duration }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -169,6 +180,7 @@
                                     </div>
                                     </div>
                                     </div>
+                                    
                      </div>              
                 </div>
             </div>

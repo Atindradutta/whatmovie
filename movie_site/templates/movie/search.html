@@ -1,0 +1,175 @@
+{% extends 'movie/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div id="preloader"></div>
+    <!-- header-start -->
+    
+    <header>
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-12">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src='{% static "images/filmy.png" %}' alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 col-sm-12 col-12">
+                        <div class="responsive-menu d-lg-none"></div>
+                        <div class="menu d-none d-lg-block">
+                            <nav>
+                                <ul id="menu">
+                                    <li>
+                                        <a href="{% url 'movie_site:home' %}">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a>SELETE MOVIE TYPE</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'movie_site:bollywood' %}">Bollywood</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'movie_site:tollywood' %}">Tollywood</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a href="{% url 'movie_site:hollywood' %}">Hollywood</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">CONTACT US</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'movie_site:login' %}">SIGN IN</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+                        <div class="account">
+                            <a href="#">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                        <div class="free-ticket">
+                            <a href="#">.BLOCKBLASTER MOVIE SHOW.</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12 col-12">
+                        <div class="search-signup">
+                            <div class="search">
+                                <form action="{% url 'search' %}" method="post" role=" search">
+                                    {% csrf_token %}
+                                       <div class="search-input-box">
+                                            <select>
+                                                 <option>Search movie</option>
+                                            </select>
+                                           <input type="text" name="search">
+                                       
+                                            <button>
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>                                          
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- header-start -->
+    <!-- slider-area-start -->
+    
+     <div id="slider">
+            {% for slide in all_slide %}
+                      <figure>
+                        <img src="/media/{{ slide.images }}">
+                      </figure>
+                      {% endfor %}
+                    </div>
+                   
+    <!-- slider-area-end -->
+    <!-- top-movie-area-start -->
+     <div class="movie-tab-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="movie-tab">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                             
+                            <li class="nav-item">
+                                <a class="nav-link active" id="lmovie-tab" data-toggle="tab" href="#lmovie" role="tab" aria-controls="lmovie" aria-selected="true">LATEST MOVIES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tshow-tab" data-toggle="tab" href="#tshow" role="tab" aria-controls="tshow" aria-selected="false">THIS MONTH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="omovie-tab" data-toggle="tab" href="#omovie" role="tab" aria-controls="omovie" aria-selected="false">WATCH NOW</a>
+                            </li>
+                        </ul>
+                        
+                    </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>              
+   <h1 style="font-size: 50px; text-align: center;">SEARCH NOT FOUND</h1>
+    <!-- news-area-end -->
+    <!-- footer-start -->
+    <!-- footer-end -->
+    <!-- Scripts -->
+    <script src='{%static "javascript/jquery-3.2.0.min.js" %}'></script>
+    <script src='{%static "javascript/jquery-ui.js" %}'></script>
+    <script src='{%static "javascript/owl.curousel.min.js" %}'></script>
+    <script src='{%static "javascript/jqueary.countup.min.js" %}'></script>
+    <script src='{%static "javascript/countdown.js" %}'></script>
+    <script src='{%static "javascript/parallax.js" %}'></script>
+    <script src='{%static "javascript/amplitude.js" %}'></script>
+    <script src='{%static "javascript/plyr.js" %}'></script>
+    <script src='{%static "javascript/jquery.slimscroll.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.magnific-popup.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.slicknav.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.scrollUp.js" %}'></script>
+    <script src='{%static "javascript/jquery.mixitup.min.js" %}'></script>
+    <script src='{%static "javascript/jquery.waypoints.min.js" %}'></script>
+    <script src='{%static "javascript/popper.min.js" %}'></script>
+    <script src='{%static "javascript/booststrap.min.js" %}'></script>
+    <script src='{%static "javascript/theme.js" %}'></script>
+    
+    
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+    {% endblock %}                         

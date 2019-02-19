@@ -17,13 +17,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
+from movie_site import views
 
 
-admin.site.site_header = "FILM CAST(GUDDU,DEEPAK JANGID)"
+admin.site.site_header = "FILM CAST"
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('movie_site.urls', namespace="movie_site")),
+    url(r'^logout/$',views.logout_view,name="logout"),
+    url(r'^register/', views.register,name='register'),
+    url(r'^logged_in/$',views.logged_in,name='login'),
+    url(r'^search/$',views.search_movie,name="search"),
+    url(r'^player/', views.player,name='player'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

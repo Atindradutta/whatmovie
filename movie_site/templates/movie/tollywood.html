@@ -1,6 +1,5 @@
 {% extends 'movie/base.html' %}
 {% load staticfiles %}
-
 {% block content %}
 <body>
     <div id="preloader"></div>
@@ -37,14 +36,23 @@
                                     </li>
                                    
                                     <li>
-                                        <a href="contact.html">CONTACT US</a>
+                                        <a href="{% url 'movie_site:contact' %}">CONTACT US</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'movie_site:register' %}">REGISTER</a>
-                                    </li>
-                                    <li>
-                                            <a href="{% url 'movie_site:login' %}">SIGN IN</a>
-                                    </li>
+                                        <a>ACCOUNT</a>
+                                        <ul class="drop">
+                                            <li>
+                                                <a href="{% url 'register' %}">REGISTER</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'login' %}">SIGN IN</a>
+                                            </li>
+                                            
+                                             <li>
+                                                <a href="{% url 'logout' %}">LOGOUT</a>
+                                            </li>
+                                        </ul>
+                                </li>
                                 </ul>
                             </nav>
                         </div>
@@ -69,18 +77,19 @@
                     <div class="col-lg-9 col-md-8 col-sm-12 col-12">
                         <div class="search-signup">
                             <div class="search">
-                                <form action="#">
-                                    <div class="search-input-box">
-                                        <select>
-                                            <option>Select Movie Type</option>
-                                        </select>
-                                        <input type="text"  placeholder="     Enter Movie Name">
-                                        <button>
-                                               <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                <form action="{% url 'search' %}" method="post" role=" search">
+                                        {% csrf_token %}
+                                           <div class="search-input-box">
+                                                <select>
+                                                     <option>Search movie</option>
+                                                </select>
+                                               <input type="text" name="search">
+                                    <button>
+                                           <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -97,6 +106,7 @@
                     </div>
 
 <!-- slider-area-end -->
+
     <!-- feature-movie-area-start -->
     <div class="feature-movie-area">
         <div class="container">
@@ -149,7 +159,7 @@
                                         <div class="single-top-movie">
                                             <div class="img">
                                                 <a href="#">
-                                                    <img src="/media/{{ tollywoodtwo.picturetwo }}" alt="">
+                                                    <img src="/media/{{ tollywoodtwo.picture }}">
                                                 </a>
                                             </div>
                                             <a class="popup-youtube" href="">
@@ -157,11 +167,11 @@
                                             </a>
                                             <div class="content">
                                                 <h2 class="name">
-                                                    <a>{{ tollywoodtwo.nametwo }}</a>
+                                                    <a>{{ tollywoodtwo.name }}</a>
                                                 </h2>
-                                                <p class="time">{{ tollywoodtwo.descriptiontwo }}</p>
-                                                <p class="date">{{ tollywoodtwo.datetwo }}</p>
-                                                <p class="duration">{{ tollywoodtwo.durationtwo }}</p>
+                                                <p class="time">{{ tollywoodtwo.description }}</p>
+                                                <p class="date">{{ tollywoodtwo.date }}</p>
+                                                <p class="duration">{{ tollywoodtwo.duration }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -177,7 +187,7 @@
 </div>
     <!-- feature-movie-area-end -->
 </body>
-</html>
+
      <!-- Scripts -->
      <script src='{%static "javascript/jquery-3.2.0.min.js" %}'></script>
      <script src='{%static "javascript/jquery-ui.js" %}'></script>

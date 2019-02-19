@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <title>player</title>
+        <meta name="description" content="HTML5 video and audio player with support for YouTube, SoundCloud, Facebook, Vimeo, HLS, Dash, and others."/>
+        <meta name="keywords" content="HTML5, video, H.264, Javascript, media, mp3, mp4"/>
+
+        <!-- fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i">
+
+        <!-- site -->
+        <link rel="stylesheet" href='{%static "css/mejs-site.css" %}'>
+
+        <!-- library -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    </head>
+    <body>
+        <!-- player demos -->
+        <section class="players">
+
+            <div class="container">
+
+                <h2>FILM CAST</h2>
+
+                    <div class="player">
+                        <video id="player1" width="640" height="360" preload="none" style="max-width: 100%" controls poster="images/big_buck_bunny.jpg" autoplay playsinline webkit-playsinline>
+                            <source src="https://xmovies8.im/movie/viper-club-2018-1080p/" type="video/mp4">
+                            <track src="dist/mediaelement.vtt" srclang="en" label="English" kind="subtitles" type="text/vtt">
+                        </video>
+                    </div>
+                </div>
+        </section>
+        
+        <ul>
+                <li><a href="{% url 'movie_site:home' %}">HOME</a></li>
+            </ul>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelement-and-player.min.js"></script>
+        <script>
+
+            var
+                sourcesSelector = document.body.querySelectorAll('select'),
+		        sourcesTotal = sourcesSelector.length
+            ;
+
+            for (var i = 0; i < sourcesTotal; i++) {
+                sourcesSelector[i].addEventListener('change', function (e) {
+                    var
+                        media = e.target.closest('.media-container').querySelector('.mejs__container').id,
+                        player = mejs.players[media]
+                    ;
+
+                    player.setSrc(e.target.value.replace('&amp;', '&'));
+                    player.setPoster('');
+                    player.load();
+
+                });
+
+                // These media types cannot play at all on iOS, so disabling them
+                if (mejs.Features.isiOS) {
+			        if (sourcesSelector[i].querySelector('option[value^="rtmp"]')) {
+                        sourcesSelector[i].querySelector('option[value^="rtmp"]').disabled = true;
+                    }
+                    if (sourcesSelector[i].querySelector('option[value$="webm"]')) {
+                        sourcesSelector[i].querySelector('option[value$="webm"]').disabled = true;
+                    }
+                    if (sourcesSelector[i].querySelector('option[value$=".mpd"]')) {
+                        sourcesSelector[i].querySelector('option[value$=".mpd"]').disabled = true;
+                    }
+			        if (sourcesSelector[i].querySelector('option[value$=".ogg"]')) {
+                        sourcesSelector[i].querySelector('option[value$=".ogg"]').disabled = true;
+                    }
+			        if (sourcesSelector[i].querySelector('option[value$=".flv"]')) {
+                        sourcesSelector[i].querySelector('option[value*=".flv"]').disabled = true;
+        		    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+			            }
+		            });
+                }
+            });
+        </script>
+    </body>
+</html>
